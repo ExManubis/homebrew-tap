@@ -6,25 +6,25 @@ cask "claudewitz" do
     end
   end
 
-  version "0.3.0"
+  version "0.3.1"
 
   on_macos do
     on_arm do
-      sha256 "5c05723c017c8de66e98b93c49a3d9991fb2ccc2d92e22f073ad57f9f944084f"
+      sha256 "8a259fc7c209d81ac589e3db513a58d8f95c7ab5c0e7d15b48f0e969dc30596c"
       url "https://github.com/ExManubis/Claudewitz/releases/download/v#{version}/claudewitz_#{version}_darwin_arm64.tar.gz"
     end
     on_intel do
-      sha256 "4436fe1d97589cc8d1ca9dacd91535ff917ec1bd2a490dbfa4738830ef0b33d5"
+      sha256 "e553e422d91a252d26ae10c3ad7248ea0856399a68a0e6d4752e47ea97507c4f"
       url "https://github.com/ExManubis/Claudewitz/releases/download/v#{version}/claudewitz_#{version}_darwin_amd64.tar.gz"
     end
   end
   on_linux do
     on_arm do
-      sha256 "8b644cf60be925bbf1d390e69a51905152c4927961d53cc8fae68ed453cd553e"
+      sha256 "e36617efa3db286933bee27269158a9793d927264f7fa883ddfcead8c86bccf9"
       url "https://github.com/ExManubis/Claudewitz/releases/download/v#{version}/claudewitz_#{version}_linux_arm64.tar.gz"
     end
     on_intel do
-      sha256 "54513b1c5be5d3bd30355a88d9c58cb4213c56fd7a3f87dfca4c74c40c2fed55"
+      sha256 "74afd3b0801bbe5e3026b864cb8ad18853594485e8f536bb42917b014004cd4f"
       url "https://github.com/ExManubis/Claudewitz/releases/download/v#{version}/claudewitz_#{version}_linux_amd64.tar.gz"
     end
   end
