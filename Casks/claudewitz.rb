@@ -6,25 +6,25 @@ cask "claudewitz" do
     end
   end
 
-  version "0.2.0"
+  version "0.3.0"
 
   on_macos do
     on_arm do
-      sha256 "2f051bbc45571691a92057ec3a4c5f2490a3c25c99ac59179df845422af31429"
+      sha256 "5c05723c017c8de66e98b93c49a3d9991fb2ccc2d92e22f073ad57f9f944084f"
       url "https://github.com/ExManubis/Claudewitz/releases/download/v#{version}/claudewitz_#{version}_darwin_arm64.tar.gz"
     end
     on_intel do
-      sha256 "d0fa82c937fda2e0dc83229a9bfdbbe798170c0683ac8ec8601795a5929be4b2"
+      sha256 "4436fe1d97589cc8d1ca9dacd91535ff917ec1bd2a490dbfa4738830ef0b33d5"
       url "https://github.com/ExManubis/Claudewitz/releases/download/v#{version}/claudewitz_#{version}_darwin_amd64.tar.gz"
     end
   end
   on_linux do
     on_arm do
-      sha256 "b7d8d42bd84dc96654da236b0ba9b91a8cec18e2642cc1e84a7aee593ad5dec0"
+      sha256 "8b644cf60be925bbf1d390e69a51905152c4927961d53cc8fae68ed453cd553e"
       url "https://github.com/ExManubis/Claudewitz/releases/download/v#{version}/claudewitz_#{version}_linux_arm64.tar.gz"
     end
     on_intel do
-      sha256 "f78257618ec9b6757aafe3ce6ce085dcd05296a49aa69c8052d8dea0953c1cfa"
+      sha256 "54513b1c5be5d3bd30355a88d9c58cb4213c56fd7a3f87dfca4c74c40c2fed55"
       url "https://github.com/ExManubis/Claudewitz/releases/download/v#{version}/claudewitz_#{version}_linux_amd64.tar.gz"
     end
   end
@@ -39,11 +39,18 @@ cask "claudewitz" do
 
   binary "claudewitz"
 
-  # No zap stanza required
+  zap launchctl: [
+      "ai.claudewitz.daemon",
+    ],
+    trash: [
+      "~/Library/LaunchAgents/ai.claudewitz.daemon.plist",
+      "~/.claudewitz",
+    ]
 
   caveats <<~EOS
     claudewitz drives the Claude Code CLI. If you don't have it yet:
       npm install -g @anthropic-ai/claude-code
     then run `claude` once to log in.
+    To keep the daemon running for the iPhone app: claudewitz daemon install
   EOS
 end
